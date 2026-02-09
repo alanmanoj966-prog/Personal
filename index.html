@@ -2,13 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title> ܡܵܪܝ ܢܒܵܪܟܰܢ ܒܚܘܒܐ  🌹 </title>
+<title>ܡܵܪܝ ܢܒܵܪܟܰܢ ܒܚܘܒܐ 🌹</title>
 
 <style>
-<div id="overlay">
-    <img src="overlay.jpg" alt="For my beloved – ܠܚܒܝܒܝ">
-</div>
-    /* Overlay styles */
+/* Overlay styles */
 #overlay {
     position: fixed;
     top: 0;
@@ -31,17 +28,11 @@
 }
 
 @keyframes zoomIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    from { opacity: 0; transform: scale(0.8); }
+    to   { opacity: 1; transform: scale(1); }
 }
 
-    body {
+body {
     margin: 0;
     height: 100vh;
     background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
@@ -97,16 +88,12 @@ button {
     cursor: pointer;
 }
 
-/* YES button */
 .yes {
     background: #ff4d88;
     color: white;
 }
 
-/* NO flip card */
-.no-container {
-    perspective: 800px;
-}
+.no-container { perspective: 800px; }
 
 .no-card {
     width: 150px;
@@ -116,9 +103,7 @@ button {
     cursor: pointer;
 }
 
-.no-card.flip {
-    transform: rotateY(180deg);
-}
+.no-card.flip { transform: rotateY(180deg); }
 
 .no-front, .no-back {
     position: absolute;
@@ -159,9 +144,13 @@ button {
 
 <body>
 
+<!-- OVERLAY (must be inside body) -->
+<div id="overlay">
+    <img src="overlay.jpg" alt="For my beloved – ܠܚܒܝܒܝ">
+</div>
+
 <div class="container">
     <h1>ܝܐ ܚܒܝܒܬܝ، ܬܗܘܝܢ ܠܝ ܠܥܠܡ؟ 💘</h1>
-   
 
     <div class="buttons">
         <button class="yes" onclick="celebrate()">Yes 💖</button>
@@ -194,19 +183,14 @@ function spawn(icon, cls) {
 setInterval(() => spawn("💖", "heart"), 600);
 setInterval(() => spawn("🌹", "rose"), 900);
 
-/* NO flip only */
 function flipNo() {
     document.getElementById("noCard").classList.add("flip");
 }
 
-/* YES celebration */
 function celebrate() {
     document.getElementById("music").play();
-
-    // show overlay
     document.getElementById("overlay").style.display = "flex";
 
-    // confetti
     for (let i = 0; i < 40; i++) {
         const c = document.createElement("div");
         c.className = "confetti";
@@ -217,19 +201,11 @@ function celebrate() {
     }
 }
 
-}
-    document.getElementById("overlay").onclick = function () {
+/* Close overlay on click */
+document.getElementById("overlay").onclick = function () {
     this.style.display = "none";
 };
 </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
